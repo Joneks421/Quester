@@ -12,24 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Auth extends AppCompatActivity {
     Button reg;
     Button in;
-    private EditText login;
-    private EditText password;
-
-    public EditText getLogin() {
-        return login;
-    }
-
-    public void setLogin(EditText login) {
-        this.login = login;
-    }
-
-    public EditText getPassword() {
-        return password;
-    }
-
-    public void setPassword(EditText password) {
-        this.password = password;
-    }
+    EditText login;
+    EditText password;
+    private static String Glogin;
+    private static String Gpassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +25,9 @@ public class Auth extends AppCompatActivity {
         in = findViewById(R.id.Button_in);
         login = findViewById(R.id.Login);
         password = findViewById(R.id.Password);
+
+        Glogin = String.valueOf(login.getText());
+        Gpassword = String.valueOf(password.getText());
 
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,5 +44,21 @@ public class Auth extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static String getGlogin() {
+        return Glogin;
+    }
+
+    public static void setGlogin(String glogin) {
+        Glogin = glogin;
+    }
+
+    public static String getGpassword() {
+        return Gpassword;
+    }
+
+    public static void setGpassword(String gpassword) {
+        Gpassword = gpassword;
     }
 }
