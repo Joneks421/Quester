@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ public class Auth extends AppCompatActivity {
     Button in;
     EditText login;
     EditText password;
+
     private static String Glogin;
     private static String Gpassword;
 
@@ -29,18 +31,24 @@ public class Auth extends AppCompatActivity {
         Glogin = String.valueOf(login.getText());
         Gpassword = String.valueOf(password.getText());
 
+        Intent intent = new Intent(Auth.this, MainActivity.class);
+
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Auth.this, MainActivity.class);
                 startActivity(intent);
+                Toast.makeText(Auth.this,
+                        "Вы успешно зарегестрировались",
+                        Toast.LENGTH_SHORT).show();
             }
         });
         in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Auth.this, MainActivity.class);
                 startActivity(intent);
+                Toast.makeText(Auth.this,
+                        "Вы успешно авторизировались",
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
