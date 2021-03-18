@@ -12,8 +12,25 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Auth extends AppCompatActivity {
     Button reg;
     Button in;
-    EditText login;
-    EditText password;
+    private EditText login;
+    private EditText password;
+
+    public EditText getLogin() {
+        return login;
+    }
+
+    public void setLogin(EditText login) {
+        this.login = login;
+    }
+
+    public EditText getPassword() {
+        return password;
+    }
+
+    public void setPassword(EditText password) {
+        this.password = password;
+    }
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,5 +54,6 @@ public class Auth extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }
