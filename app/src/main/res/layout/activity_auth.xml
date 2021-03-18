@@ -3,5 +3,31 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Auth"/>
+    <EditText
+        android:id="@+id/Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Login"/>
+    <EditText
+        android:id="@+id/Password"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Password" />
+    <Button
+        android:id="@+id/Button_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/GetIn"/>
+    <Button
+        android:id="@+id/Button_reg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/RegIn"/>
 
 </LinearLayout>

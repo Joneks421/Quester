@@ -3,4 +3,9 @@
     <string name="quester">Quester</string>
     <string name="Create">Создать</string>
     <string name="Do">Пройти</string>
+    <string name="Auth">Авторизация</string>
+    <string name="Login">Логин</string>
+    <string name="Password">Пароль</string>
+    <string name="GetIn">Войти</string>
+    <string name="RegIn">Зарегистрироватся</string>
 </resources>
