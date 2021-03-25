@@ -16,8 +16,8 @@ public class Auth extends AppCompatActivity {
     EditText login;
     EditText password;
 
-    static String Glogin;
-    static String Gpassword;
+    String Glogin;
+    String Gpassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,6 +36,8 @@ public class Auth extends AppCompatActivity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                intent.putExtra("Glogin",Glogin );
+                intent.putExtra("Gpassword", Gpassword);
                 startActivity(intent);
                 Toast.makeText(Auth.this,
                         "Вы успешно зарегестрировались",
@@ -45,6 +47,8 @@ public class Auth extends AppCompatActivity {
         in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                intent.putExtra("Glogin",Glogin );
+                intent.putExtra("Gpassword", Gpassword);
                 startActivity(intent);
                 Toast.makeText(Auth.this,
                         "Вы успешно авторизировались",
