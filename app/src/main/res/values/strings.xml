@@ -8,4 +8,8 @@
     <string name="Password">Пароль</string>
     <string name="GetIn">Войти</string>
     <string name="RegIn">Зарегистрироватся</string>
+    <string name="CreateTest">Создать тест</string>
+    <string name="TestName">Название теста</string>
+    <string name="OpisanieTesta">Краткое описание теста</string>
+    <string name="Full_opisania_testa">Полное описание теста</string>
 </resources>

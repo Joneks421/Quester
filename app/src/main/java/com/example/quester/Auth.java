@@ -16,8 +16,8 @@ public class Auth extends AppCompatActivity {
     EditText login;
     EditText password;
 
-    private static String Glogin;
-    private static String Gpassword;
+    static String Glogin;
+    static String Gpassword;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,21 +52,5 @@ public class Auth extends AppCompatActivity {
             }
         });
 
-    }
-
-    public static String getGlogin() {
-        return Glogin;
-    }
-
-    public static void setGlogin(String glogin) {
-        Glogin = glogin;
-    }
-
-    public static String getGpassword() {
-        return Gpassword;
-    }
-
-    public static void setGpassword(String gpassword) {
-        Gpassword = gpassword;
     }
 }

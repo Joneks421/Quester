@@ -12,6 +12,7 @@ public class ShowQuest extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         listquest = findViewById(R.id.ListQuests);
     }
 }
