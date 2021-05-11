@@ -41,7 +41,7 @@ public class AddUserActivity extends AppCompatActivity {
 
                     @Override
                     public Call<Answer> getCall(UserService userService) {
-                        return userService.insertUser(login, password, name);
+                        return userService.insertUser(login, password);
                     }
                 };
                 asyncUserLoader.execute("https://10.148.190.161/nikita/");

@@ -15,8 +15,12 @@ public interface UserService {
     @GET("insert.php")
     Call<Answer> insertUser(
             @Query("login") String login,
-            @Query("password") String password,
-            @Query("name") String name
+            @Query("password") String password
+    );
+    @GET("check.php")
+    Call<Answer> checkUser(
+            @Query("login") String login,
+            @Query("password") String password
     );
 }
 
@@ -35,11 +39,11 @@ class Answer{
 
 class User{
     int id;
-    String login, password, name;
+    String login, password;
 
     @NonNull
     @Override
     public String toString() {
-        return id + " " + login + " " + password + " " + name;
+        return id + " " + login + " " + password;
     }
 }

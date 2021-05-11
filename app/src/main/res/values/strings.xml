@@ -12,4 +12,6 @@
     <string name="TestName">Название теста</string>
     <string name="OpisanieTesta">Краткое описание теста</string>
     <string name="Full_opisania_testa">Полное описание теста</string>
+    <string name="QuestAuthor">Автор квеста</string>
+    <string name="QuestText">Текст квеста</string>
 </resources>

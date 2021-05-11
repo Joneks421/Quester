@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import retrofit2.Call;
+
 public class Auth extends AppCompatActivity {
     Button reg;
     Button in;
@@ -36,23 +38,64 @@ public class Auth extends AppCompatActivity {
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("Glogin",Glogin );
-                intent.putExtra("Gpassword", Gpassword);
-                startActivity(intent);
-                Toast.makeText(Auth.this,
-                        "Вы успешно зарегестрировались",
-                        Toast.LENGTH_SHORT).show();
+                AsyncUserLoader asyncUserLoader = new AsyncUserLoader() {
+                    @Override
+                    public void postExecute(Answer answer) {
+                        if (answer.status) {
+                            login.setText("");
+                            password.setText("");
+                            startActivity(intent);
+                            Toast.makeText(Auth.this,
+                                    "Вы успешно зарегистрировались",
+                                    Toast.LENGTH_SHORT).show();
+                        }else {
+                            login.setText("");
+                            password.setText("");
+                            Toast.makeText(Auth.this,
+                                    "Введенные недопустимые данные или логин уже занят",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+
+
+                    @Override
+                    public Call<Answer> getCall(UserService userService) {
+                        return userService.insertUser(Glogin, Gpassword);
+                    }
+                };
+                asyncUserLoader.execute("https://localhost/Quester/");
             }
         });
         in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent.putExtra("Glogin",Glogin );
-                intent.putExtra("Gpassword", Gpassword);
-                startActivity(intent);
-                Toast.makeText(Auth.this,
-                        "Вы успешно авторизировались",
-                        Toast.LENGTH_SHORT).show();
+                AsyncUserLoader asyncUserLoader = new AsyncUserLoader() {
+                    @Override
+                    public void postExecute(Answer answer) {
+                        if (answer.status) {
+                            login.setText("");
+                            password.setText("");
+                            startActivity(intent);
+                            Toast.makeText(Auth.this,
+                                    "Вы успешно авторизировались",
+                                    Toast.LENGTH_SHORT).show();
+
+                        }else{
+                            login.setText("");
+                            password.setText("");
+                            Toast.makeText(Auth.this,
+                                    "Вы ввели неправильные данные",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public Call<Answer> getCall(UserService userService) {
+                        return userService.checkUser(Glogin, Gpassword);
+                    }
+                };
+                asyncUserLoader.execute("https://localhost/Quester/");
             }
         });
 

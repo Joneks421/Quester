@@ -15,6 +15,12 @@
         android:layout_height="wrap_content"
         android:hint="@string/TestName"/>
     <EditText
+        android:id="@+id/AuthorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/QuestAuthor"
+        android:inputType="textLongMessage"/>
+    <EditText
         android:id="@+id/OpisaniaTesta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -25,5 +31,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/Full_opisania_testa"
+        android:inputType="textLongMessage"/>
+    <EditText
+        android:id="@+id/QuestText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/QuestText"
         android:inputType="textLongMessage"/>
 </LinearLayout>
