@@ -38,4 +38,17 @@
         android:layout_height="wrap_content"
         android:hint="@string/QuestText"
         android:inputType="textLongMessage"/>
+
+    <EditText
+        android:id="@+id/Balli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Кол-во баллов за правильный ответ"/>
+
+
+    <Button
+        android:id="@+id/add_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Далее"/>
 </LinearLayout>

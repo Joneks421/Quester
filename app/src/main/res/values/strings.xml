@@ -14,4 +14,6 @@
     <string name="Full_opisania_testa">Полное описание теста</string>
     <string name="QuestAuthor">Автор квеста</string>
     <string name="QuestText">Текст квеста</string>
+    <string name="TextOfQuestion">Текст вопроса</string>
+    <string name="user">Учетная запись</string>
 </resources>
