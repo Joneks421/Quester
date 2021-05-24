@@ -9,15 +9,15 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface UserService {
-    @GET("get.php")
+    @GET("/Quester/get.php")
     Call<Answer> getUsers();
 
-    @GET("insert.php")
+    @GET("/Quester/insert.php")
     Call<Answer> insertUser(
             @Query("login") String login,
             @Query("password") String password
     );
-    @GET("check.php")
+    @GET("/Quester/check.php")
     Call<Answer> checkUser(
             @Query("login") String login,
             @Query("password") String password

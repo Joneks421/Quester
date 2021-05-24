@@ -32,6 +32,7 @@ public class CreateQuest extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_createquest);
 
         nameTest = findViewById(R.id.NameTest);
         questText = findViewById(R.id.QuestText);
@@ -41,17 +42,17 @@ public class CreateQuest extends AppCompatActivity {
         addButton = findViewById(R.id.add_Button);
         authorName = findViewById(R.id.AuthorName);
 
-        SnameTest = String.valueOf(nameTest.getText());
-        SQuestText = String.valueOf(questText.getText());
-        SshortInfo = String.valueOf(shortInfo.getText());
-        SFullinfo = String.valueOf(fullInfo.getText());
-        SAuthorName = String.valueOf(authorName.getText());
-        SBalli = String.valueOf(Balli.getText());
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CreateQuest.this, Tasks.class);
+                SnameTest = String.valueOf(nameTest.getText());
+                SQuestText = String.valueOf(questText.getText());
+                SshortInfo = String.valueOf(shortInfo.getText());
+                SFullinfo = String.valueOf(fullInfo.getText());
+                SAuthorName = String.valueOf(authorName.getText());
+                SBalli = String.valueOf(Balli.getText());
                 startActivity(intent);
             }
         });

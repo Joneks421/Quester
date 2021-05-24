@@ -12,15 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quester">
         <activity android:name=".MainActivity">
-            <intent-filter>
+        </activity>
+        <activity android:name=".CreateQuest" />
+        <activity android:name=".Auth" >
+            `<intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".ShowQuest" />
+        <activity android:name=".profile" />
+        <activity android:name=".Tasks" >
+            `<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </intent-filter>
         </activity>
-        <activity android:name=".CreateQuest" />
-        <activity android:name=".Auth" />
-        <activity android:name=".ShowQuest" />
+        <activity android:name=".AddTask" />
+        <activity android:name=".Json" >
+        </activity>
+        <activity android:name=".AnswerOptions" />
     </application>
 
 </manifest>

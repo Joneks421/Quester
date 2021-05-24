@@ -15,7 +15,7 @@ public class AddTask extends AppCompatActivity {
     EditText timeAmount;
 
     static String SQuestionText;
-    static String SQuestionsAmount;
+    static Integer SQuestionsAmount;
     static String STimeAmount;
 
 
@@ -26,21 +26,29 @@ public class AddTask extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_addtask);
         questionText = findViewById(R.id.questionText);
         questionAmount = findViewById(R.id.questionAmount);
         addOptionAnswer = findViewById(R.id.button_addOptionAnswer);
+        timeAmount = findViewById(R.id.TimeAmount);
 
-        SQuestionText = String.valueOf(questionText.getText());
-        SQuestionsAmount = String.valueOf(questionAmount.getText());
-        STimeAmount = String.valueOf(timeAmount.getText());
+
 
         addOptionAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AddTask.this, AnswerOptions.class);
-                startActivity(intent);
+                Intent intent2 = new Intent(AddTask.this, AnswerOptions.class);
+
+                SQuestionText = String.valueOf(questionText.getText());
+                SQuestionsAmount = Integer.valueOf(String.valueOf(questionAmount.getText()));
+                STimeAmount = String.valueOf(timeAmount.getText());
+                intent.putExtra("SQestionsAmount", SQuestionsAmount);
+                startActivity(intent2);
+
             }
         });
+
 
     }
 }

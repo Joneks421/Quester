@@ -21,6 +21,7 @@ public abstract class AsyncUserLoader extends AsyncTask<String, Integer, Answer>
         Call<Answer> call = getCall(userService);
         try {
             Response<Answer> response = call.execute();
+            System.out.println(response.body());
             return response.body();
         } catch (IOException e) {
             e.printStackTrace();

@@ -24,23 +24,26 @@ public class Auth extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_auth);
 
         reg = findViewById(R.id.Button_reg);
         in = findViewById(R.id.Button_in);
         login = findViewById(R.id.Login);
         password = findViewById(R.id.Password);
 
-        Glogin = String.valueOf(login.getText());
-        Gpassword = String.valueOf(password.getText());
 
         Intent intent = new Intent(Auth.this, MainActivity.class);
 
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Glogin = String.valueOf(login.getText());
+                Gpassword = String.valueOf(password.getText());
+                System.out.println(Glogin + "   " + Gpassword);
                 AsyncUserLoader asyncUserLoader = new AsyncUserLoader() {
                     @Override
                     public void postExecute(Answer answer) {
+                        System.out.println(answer);
                         if (answer.status) {
                             login.setText("");
                             password.setText("");
@@ -64,15 +67,18 @@ public class Auth extends AppCompatActivity {
                         return userService.insertUser(Glogin, Gpassword);
                     }
                 };
-                asyncUserLoader.execute("https://localhost/Quester/");
+                asyncUserLoader.execute("http://10.54.204.168");
             }
         });
         in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Glogin = String.valueOf(login.getText());
+                Gpassword = String.valueOf(password.getText());
                 AsyncUserLoader asyncUserLoader = new AsyncUserLoader() {
                     @Override
                     public void postExecute(Answer answer) {
+
                         if (answer.status) {
                             login.setText("");
                             password.setText("");
@@ -95,7 +101,7 @@ public class Auth extends AppCompatActivity {
                         return userService.checkUser(Glogin, Gpassword);
                     }
                 };
-                asyncUserLoader.execute("https://localhost/Quester/");
+                asyncUserLoader.execute("http://10.54.204.168");
             }
         });
 

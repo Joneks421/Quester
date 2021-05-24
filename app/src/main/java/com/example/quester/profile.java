@@ -18,13 +18,14 @@ public class profile extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user);
         edit = findViewById(R.id.edit_Profile);
         remove = findViewById(R.id.button_remove);
         showPass = findViewById(R.id.show_Password);
 
         login = findViewById(R.id.user_Login);
         password = findViewById(R.id.show_Password);
-        super.onCreate(savedInstanceState);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

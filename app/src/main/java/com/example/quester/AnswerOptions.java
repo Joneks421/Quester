@@ -1,5 +1,6 @@
 package com.example.quester;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,8 @@ public class AnswerOptions extends AppCompatActivity {
 
     EditText optionText;
 
-    static String SOptionText;
+    String SOptionText;
+    static Integer count;
 
     CheckBox rightAnswer;
 
@@ -22,15 +24,28 @@ public class AnswerOptions extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_answeroptions);
         optionText = findViewById(R.id.OptionText);
         rightAnswer = findViewById(R.id.rightOption);
         nextOption = findViewById(R.id.nextOption);
+        count = 0;
 
-        SOptionText = String.valueOf(optionText.getText());
 
         nextOption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SOptionText = String.valueOf(optionText.getText());
+                if (count < getIntent().getIntExtra ("SQestionsAmount", 3)){
+                    Intent intent = new Intent(AnswerOptions.this, Tasks.class);
+                    startActivity(intent);
+                }else {
+                    Json.variest.add(SOptionText);
+                    optionText.setText("");
+                    count+= 1;
+                    System.out.println(Json.variest);
+                }
+
+
 
             }
         });
