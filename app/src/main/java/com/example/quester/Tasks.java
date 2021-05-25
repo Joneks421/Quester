@@ -14,14 +14,24 @@ import java.util.ArrayList;
 
 public class Tasks extends AppCompatActivity {
     Button addQuestion;
+    Button next;
     ListView tasksList;
+    static Integer numberQuest;
+
+    public static Integer getNumberQuest() {
+        return numberQuest;
+    }
+
+    public static void setNumberQuest(Integer numberQuest) {
+        Tasks.numberQuest = numberQuest;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tasks);
+        next = findViewById(R.id.Tasks_net_button);
         addQuestion = findViewById(R.id.addQuestion);
-        tasksList = findViewById(R.id.tasksList);
         addQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,6 +39,14 @@ public class Tasks extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Tasks.this, Json.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

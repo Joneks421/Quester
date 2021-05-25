@@ -16,4 +16,6 @@
     <string name="QuestText">Текст квеста</string>
     <string name="TextOfQuestion">Текст вопроса</string>
     <string name="user">Учетная запись</string>
+    <string name="TextPr">Подтвердите создание теста</string>
+    <string name="Acceprt">Подтверждаю</string>
 </resources>

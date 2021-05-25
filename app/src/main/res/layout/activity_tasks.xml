@@ -5,15 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/tasksList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <Button
         android:id="@+id/addQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Добавить вопрос"/>
+
+    <Button
+        android:id="@+id/Tasks_net_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Далее"/>
 
 </LinearLayout>

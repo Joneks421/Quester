@@ -9,6 +9,8 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import retrofit2.Call;
+
 public class CreateQuest extends AppCompatActivity {
     EditText nameTest;
     EditText shortInfo;
@@ -53,7 +55,19 @@ public class CreateQuest extends AppCompatActivity {
                 SFullinfo = String.valueOf(fullInfo.getText());
                 SAuthorName = String.valueOf(authorName.getText());
                 SBalli = String.valueOf(Balli.getText());
-                startActivity(intent);
+                AsyncUserLoader asyncUserLoader = new AsyncUserLoader() {
+                    @Override
+                    public void postExecute(Answer answer) {
+                        startActivity(intent);
+
+                    }
+
+                    @Override
+                    public Call<Answer> getCall(UserService userService) {
+                        return userService.insertCreate (SQuestText, SshortInfo, SFullinfo, SAuthorName, SnameTest, SBalli);
+                    }
+                };
+                asyncUserLoader.execute("http://10.54.204.168");
             }
         });
 

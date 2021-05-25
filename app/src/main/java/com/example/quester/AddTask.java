@@ -9,19 +9,32 @@ import android.widget.EditText;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
 public class AddTask extends AppCompatActivity {
     EditText questionText;
     EditText questionAmount;
     EditText timeAmount;
+    ArrayList<String> textThis = new ArrayList<String>();
+    ArrayList<Integer> timeThis = new ArrayList<Integer>();
 
     static String SQuestionText;
     static Integer SQuestionsAmount;
-    static String STimeAmount;
+    static Integer STimeAmount;
 
 
     Button addOptionAnswer;
 
 
+    public static String getSQuestionText() {
+        return SQuestionText;
+    }
+
+    public void setSQuestionText(String SQuestionText) {
+        this.SQuestionText = SQuestionText;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,8 +55,12 @@ public class AddTask extends AppCompatActivity {
 
                 SQuestionText = String.valueOf(questionText.getText());
                 SQuestionsAmount = Integer.valueOf(String.valueOf(questionAmount.getText()));
-                STimeAmount = String.valueOf(timeAmount.getText());
-                intent.putExtra("SQestionsAmount", SQuestionsAmount);
+                STimeAmount = Integer.valueOf(String.valueOf(timeAmount.getText()));
+                textThis.add(SQuestionText);
+                timeThis.add(STimeAmount);
+                Json.texts.add((ArrayList<String>) textThis.clone());
+                Json.times.add((ArrayList<Integer>) timeThis.clone());
+                textThis.clear();
                 startActivity(intent2);
 
             }

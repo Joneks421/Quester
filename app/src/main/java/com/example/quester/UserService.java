@@ -12,6 +12,21 @@ public interface UserService {
     @GET("/Quester/get.php")
     Call<Answer> getUsers();
 
+    @GET("/Quester/insertJson.php")
+    Call<Answer> insertCreate(
+            @Query("text") String text,
+            @Query("shortInfo") String shortInfo,
+            @Query("fullInfo") String fullInfo,
+            @Query("authorName") String authorName,
+            @Query("testName") String testName,
+            @Query("pointForCorrect") String pointForCorrect
+    );
+
+    @GET("/Quester/insertCreate.php")
+    Call<Answer> insertJson(
+            @Query("text") String text
+    );
+
     @GET("/Quester/insert.php")
     Call<Answer> insertUser(
             @Query("login") String login,
