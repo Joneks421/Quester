@@ -10,7 +10,7 @@ import retrofit2.http.Query;
 
 public interface UserService {
     @GET("/Quester/get.php")
-    Call<Answer> getUsers();
+    Call<Answer> getTest();
 
     @GET("/Quester/insertJson.php")
     Call<Answer> insertCreate(
@@ -19,7 +19,7 @@ public interface UserService {
             @Query("fullInfo") String fullInfo,
             @Query("authorName") String authorName,
             @Query("testName") String testName,
-            @Query("pointForCorrect") String pointForCorrect
+            @Query("pointForCorrect") Integer pointForCorrect
     );
 
     @GET("/Quester/insertCreate.php")
@@ -41,24 +41,24 @@ public interface UserService {
 
 class Answer{
     boolean status;
-    ArrayList<User> data;
+    ArrayList<TasksClass> data;
 
-    String getStringUsers(){
+    String getStringTests(){
         String res = "";
-        for(User user: data){
-            res += user.toString() + "\n";
+        for(TasksClass test: data){
+            res += test.toString() + "\n";
         }
         return res;
     }
 }
 
-class User{
-    int id;
-    String login, password;
+class Test{
+    int id, pointForCorrect;
+    String text, shortInfo, fullInfo, authorName, testName;
 
     @NonNull
     @Override
     public String toString() {
-        return id + " " + login + " " + password;
+        return id + " " + pointForCorrect + " " + text + " " + shortInfo + " " + fullInfo + " " +  authorName + " " + testName;
     }
 }

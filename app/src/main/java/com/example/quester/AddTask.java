@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,16 +53,20 @@ public class AddTask extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(AddTask.this, AnswerOptions.class);
                 Intent intent2 = new Intent(AddTask.this, AnswerOptions.class);
-
-                SQuestionText = String.valueOf(questionText.getText());
-                SQuestionsAmount = Integer.valueOf(String.valueOf(questionAmount.getText()));
-                STimeAmount = Integer.valueOf(String.valueOf(timeAmount.getText()));
-                textThis.add(SQuestionText);
-                timeThis.add(STimeAmount);
-                Json.texts.add((ArrayList<String>) textThis.clone());
-                Json.times.add((ArrayList<Integer>) timeThis.clone());
-                textThis.clear();
-                startActivity(intent2);
+                try {
+                    SQuestionText = String.valueOf(questionText.getText());
+                    SQuestionsAmount = Integer.valueOf(String.valueOf(questionAmount.getText()));
+                    STimeAmount = Integer.valueOf(String.valueOf(timeAmount.getText()));
+                    textThis.add(SQuestionText);
+                    timeThis.add(STimeAmount);
+                    Json.texts.add((ArrayList<String>) textThis.clone());
+                    Json.times.add((ArrayList<Integer>) timeThis.clone());
+                    textThis.clear();
+                    startActivity(intent2);
+                }catch (NumberFormatException e){
+                    Toast.makeText(AddTask.this, "Вы ввели неподходящие данные",
+                            Toast.LENGTH_LONG);
+                }
 
             }
         });

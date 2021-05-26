@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +27,7 @@ public class CreateQuest extends AppCompatActivity {
     static String SshortInfo;
     static String SFullinfo;
     static String SQuestText;
-    static String SBalli;
+    static Integer SBalli;
 
 
 
@@ -49,25 +50,19 @@ public class CreateQuest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CreateQuest.this, Tasks.class);
-                SnameTest = String.valueOf(nameTest.getText());
-                SQuestText = String.valueOf(questText.getText());
-                SshortInfo = String.valueOf(shortInfo.getText());
-                SFullinfo = String.valueOf(fullInfo.getText());
-                SAuthorName = String.valueOf(authorName.getText());
-                SBalli = String.valueOf(Balli.getText());
-                AsyncUserLoader asyncUserLoader = new AsyncUserLoader() {
-                    @Override
-                    public void postExecute(Answer answer) {
-                        startActivity(intent);
+                try {
+                    SnameTest = String.valueOf(nameTest.getText());
+                    SQuestText = String.valueOf(questText.getText());
+                    SshortInfo = String.valueOf(shortInfo.getText());
+                    SFullinfo = String.valueOf(fullInfo.getText());
+                    SAuthorName = String.valueOf(authorName.getText());
+                    SBalli = Integer.valueOf(String.valueOf(Balli.getText()));
+                    startActivity(intent);
+                }catch (NumberFormatException e){
+                    Toast.makeText(CreateQuest.this, "Вы ввели неподходящие данные",
+                            Toast.LENGTH_LONG);
 
-                    }
-
-                    @Override
-                    public Call<Answer> getCall(UserService userService) {
-                        return userService.insertCreate (SQuestText, SshortInfo, SFullinfo, SAuthorName, SnameTest, SBalli);
-                    }
-                };
-                asyncUserLoader.execute("http://10.54.204.168");
+                }
             }
         });
 

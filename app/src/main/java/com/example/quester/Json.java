@@ -18,6 +18,10 @@ import java.util.ArrayList;
 
 import retrofit2.Call;
 
+import static com.example.quester.CreateQuest.SAuthorName;
+import static com.example.quester.CreateQuest.SQuestText;
+import static com.example.quester.CreateQuest.SshortInfo;
+
 public class Json extends AppCompatActivity {
 
 JSONObject text = new JSONObject();
@@ -53,6 +57,19 @@ JSONObject text = new JSONObject();
                 AsyncUserLoader asyncUserLoader = new AsyncUserLoader() {
                     @Override
                     public void postExecute(Answer answer) {
+                        AsyncUserLoader asyncUserLoader1 = new AsyncUserLoader() {
+                            @Override
+                            public void postExecute(Answer answer) {
+
+
+                            }
+
+                            @Override
+                            public Call<Answer> getCall(UserService userService) {
+                                return userService.insertCreate (SQuestText, SshortInfo, CreateQuest.SFullinfo, SAuthorName, CreateQuest.SnameTest, CreateQuest.SBalli);
+                            }
+                        };
+                        asyncUserLoader1.execute("http://10.54.204.168");
                         Intent intent = new Intent(Json.this, MainActivity.class);
                         startActivity(intent);
                     }
@@ -63,7 +80,6 @@ JSONObject text = new JSONObject();
                     }
                 };
                 asyncUserLoader.execute("http://10.54.204.168");
-
             }
         });
         back.setOnClickListener(new View.OnClickListener() {

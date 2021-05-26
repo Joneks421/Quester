@@ -10,7 +10,6 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     Button button_create;
     Button button_do;
-    Button button_profile;
 
 
     @Override
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         button_create = findViewById(R.id.Button_create);
         button_do = findViewById(R.id.Button_do);
-        button_profile = findViewById(R.id.Button_profile);
 
         button_create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,13 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button_profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, profile.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 }
